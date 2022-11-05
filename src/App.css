@@ -1,3 +1,176 @@
+  
+   
+   /* #card1 {
+    color:rgb(0, 51, 153);
+    cursor: url('D:\Users\sunil michael\projects\WebD\reactJS\HelloCatchMe\catchme\src\components\icons8-hammer-96.png'), auto;
+   } */
+   
+   
+   /* The Modal (background) */
+   .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+   
+  
+     
+        body {
+        background-color : rgb(0, 51, 153) ;
+        
+      }
+  /*	#test {
+        position : relative;
+        top : 40px;
+        //left : 0px;
+        border: 3px solid green;
+    }
+    */
+    #btn{
+       /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%;  */
+    /*
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); */ 
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: 5px 5px solid gray;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.64), 0 17px 50px 0 rgba(0,0,0,0.29);
+          }
+    #btn:hover {
+    background-color: black;
+    color: white;
+  }
+      
+    #cpwrt {
+      /* margin: 0; */
+      font-size :30px;
+      font-family: Arial, sans-serif;
+      /* position: absolute; */
+      /* top: 90%; */
+    /* left: 50%; */
+    /* text-align: center; */
+    /* margin-right: -50%; */
+    /* transform: translate(-50%, -50%)  */
+      
+          }
+    #timer {
+      margin: 0;
+      //background-color : green;
+    font-family: 'Brush Script MT', cursive;
+      position: absolute;
+      top: 5%;
+      left: 91%;
+      margin-right: -9%;
+      transform: translate(-50%, -50%) 
+          }
+    #h1 {  
+      margin: 0;
+      //background-color : green;
+    font-family: 'Brush Script MT', cursive;
+      position: absolute;
+      top: 5%;
+      left: 9%;
+      margin-right: -91%;
+      transform: translate(-50%, -50%); 
+    }
+    #h2 {
+    color: yellow;
+      margin: 0;
+      //background-color : green;
+    font-family: 'Henny Penny';
+    font-size : 100px;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+    text-shadow: 5px 5px  5px black;
+    }
+    /*
+    #info {
+    font-size: 25px; 
+    cursor: pointer; 
+    color : #66ffcc; 
+    left: 90%;
+    margin: 0;
+     
+    font-family: 'Brush Script MT', cursive;
+      position: absolute;
+      top: 5%;
+      left: 97%;
+      margin-right: -3%;
+      transform: translate(-50%, -50%)
+    } */
+      
+      /* div {
+          
+        width: 137px;   
+              height: 133px;
+        background-color: yellow;
+        position: relative;
+        font-size: 20px;   
+      } */
+    
+    #info {
+      color: #66ffcc;
+    cursor: pointer;
+      background-color:black; 
+    
+    position: absolute;
+    /* top: 5%; */
+    left: 95%;
+    
+      width:30px;
+      height:30px;
+      display:inline-block;
+      border-radius:100%;
+      font-size:25px;
+      text-align:center;
+      /* //text-decoration:none; */
+      -webkit-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+      -moz-box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+      box-shadow: inset -1px -1px 1px 0px rgba(0,0,0,0.25);
+  }
+
 .App {
   text-align: center;
 }
