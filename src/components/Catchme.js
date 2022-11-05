@@ -9,7 +9,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
-import { styled } from '@mui/material/styles';
 
 // import UIfx from 'uifx'
 // import {Howl, Howler} from 'howler';
@@ -28,17 +27,21 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const emojis = ["🤣", "💀", "😹", "🦁", "🍎", "🍏"]
+ 
 const Catchme = (props) => {
     
     var url_string = window.location.href
     var url = new URL(url_string);
-    var speed = Number(url.searchParams.get("speed"));
+    var speedInput = Number(url.searchParams.get("speed"));
 
     var duration = Number(url.searchParams.get("duration")) - 1;
-    console.log('catchme', speed, duration);
+    console.log('catchme bro', speedInput, duration);
 
     let navigate = useNavigate();
 
+    console.log(speedInput, "speeed check")
+    const [speed, setSpeed] = useState(speedInput) // !== undefined?speedInput: -1
     const [open, setOpen] = React.useState(false);
     const [ghostClicked, setGhostClicked] = React.useState(false);
 
@@ -49,6 +52,9 @@ const Catchme = (props) => {
     const [counter1, setCounter1] = useState(duration);
     const [sysCounter, setSysCounter] = useState(4);
 
+    const [positionCunter, setPositionCounter] = useState(0);
+    // var positionCunter=0;
+    const [gameMasterPiece, setGameMasterPiece] = useState("🎅")
     let refreshedIntervalId;
     
     let refreshedIntervalId2;
@@ -78,30 +84,51 @@ const Catchme = (props) => {
     useEffect(() => {
     //   console.log("Catchme->useEffect2:", refreshedIntervalId)
 
-      refreshedIntervalId = setInterval(() => {
+    //   refreshedIntervalId = setInterval(() => {
         // console.log("Catchme->useEffect->setI1", refreshedIntervalId)
         // setCounter1((counter1) => (counter1-1));
         // setSysCounter((sysCounter) => (sysCounter-1));
         if(counter1 < 0 || ghostClicked) { 
-            clearInterval(refreshedIntervalId);
+            // clearInterval(refreshedIntervalId);
             if(!ghostClicked){
                 setScoreMSG((scoreMSG)=>("Hey, you lostttttttt...!"));
                 crySound.play();
                 setOpen((open) => (true)) ;
             }
-            
+            console.log("Hey, you lostttttttt...!")
            
         }
         else{
             // setCounter1((counter1) => (counter1-1));
             // setSysCounter((sysCounter) => (sysCounter-1));
-            assignRandomPosition();
+            // setPositionCounter(positionCunter + 1);
+            // positionCunter = positionCunter + 1
+            // // setGameMasterPiece(emojis[positionCunter % 6]);
+            // document.getElementById("gamepiece").innerHTML = emojis[positionCunter % 6];
+            // assignRandomPosition();
+            // console.log("assignRandomPosition(); ", positionCunter)
         }
-      }, 1000/speed);  //speed*10
+    //   }, 1000/speed);  //speed*10
 
-      return () => {clearInterval(refreshedIntervalId);};
+    //   return () => {clearInterval(refreshedIntervalId);};
 
     }, [counter1, ghostClicked])
+
+   
+    useEffect(() => {
+        refreshedIntervalId = setInterval(() => {
+        // positionCunter = positionCunter + 1
+        setPositionCounter(positionCunter + 1);
+        if(counter1 > 0){
+            setGameMasterPiece(emojis[positionCunter % 6]);
+            // document.getElementById("gamepiece").innerHTML = emojis[positionCunter % 6];
+            assignRandomPosition();
+            console.log("assignRandomPosition(); ", positionCunter)
+        }
+      }, 1000/speed);
+      return () => {clearInterval(refreshedIntervalId);};
+    }, [positionCunter])
+    
     
     // const handleClickOpen = () => {
     //     console.log("handleClickOpen")
@@ -132,7 +159,7 @@ const Catchme = (props) => {
         crySound.currentTime = 0;
         setOpen((open)=>(false));
         // if(counter1!=4)
-        setCounter1((counter1)=>(4));
+        setCounter1((counter1)=>(duration));
         // setSysCounter((sysCounter) => (4));
         setGhostClicked((ghostClicked)=>(false));
         setScoreMSG((scoreMSG)=>(""));
@@ -175,6 +202,7 @@ const Catchme = (props) => {
         return document.getElementById("card1").offsetWidth; 
     }
     const assignRandomPosition = () => {
+        
         // console.log("Catchme->assignRandomPosition:")
         // var x = Math.floor((Math.random()*500)  + 10);
         // console.log(position, x);
@@ -192,16 +220,6 @@ const Catchme = (props) => {
         // console.log(position);
     }
 
-   
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
-
-
     return (
     <>
     {/* <button onClick={() => clapSound.play()}>play</button>
@@ -217,8 +235,9 @@ const Catchme = (props) => {
             
         {/* top: 0, left: 0, */}
                 <div id="santa" onClick={youWin} style={{position: "relative", ...position, width: "140px"}} >
-                    <span className="gamepiece" style={{fontSize:"100px", textShadow: "4px 4px 16px gray", cursor: "grab" }} >
-                        {"🎅"}
+                    <span className="gamepiece" id="gamepiece" style={{fontSize:"100px", textShadow: "4px 4px 16px gray", cursor: "grab" }} >
+                        {gameMasterPiece}
+                        {/* {"🎅"} */}
                     </span>
                 </div>
             
