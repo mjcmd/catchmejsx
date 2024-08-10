@@ -117,16 +117,16 @@ const Catchme = (props) => {
    
     useEffect(() => {
         refreshedIntervalId = setInterval(() => {
-        // positionCunter = positionCunter + 1
-        setPositionCounter(positionCunter + 1);
-        if(counter1 > 0){
-            setGameMasterPiece(emojis[positionCunter % 6]);
-            // document.getElementById("gamepiece").innerHTML = emojis[positionCunter % 6];
-            assignRandomPosition();
-            console.log("assignRandomPosition(); ", positionCunter)
-        }
-      }, 1000/speed);
-      return () => {clearInterval(refreshedIntervalId);};
+            // positionCunter = positionCunter + 1
+            setPositionCounter(positionCunter + 1);
+            if(counter1 > 0 && !ghostClicked){
+                setGameMasterPiece(emojis[positionCunter % 6]);
+                // document.getElementById("gamepiece").innerHTML = emojis[positionCunter % 6];
+                assignRandomPosition();
+                console.log("assignRandomPosition(); ", positionCunter)
+            }
+        }, 1000/speed);
+        return () => {clearInterval(refreshedIntervalId);};
     }, [positionCunter])
     
     
@@ -284,3 +284,4 @@ const Catchme = (props) => {
 }
 
 export default Catchme
+

@@ -50,7 +50,7 @@ Your browser does not support the audio element.
      <p id="info" onClick={() => { setInfo((info)=>(true))}} ><i > ? </i></p>
         <Info info={info} handleInfoClose={handleInfoClose} />
         
-      <div className="startPage" style={{width: "100%"}} style={{marginTop: "2rem"}}>
+      <div className="startPage" style={{width: "100%"}} styles={{marginTop: "2rem"}}>
 
         <Stack direction={"column"} spacing={20} justifyContent="center" alignItems="center" style={{margin: "auto"}}>
         {/* <h2 id="h2"> CatchMe!🎅</h2> */}
